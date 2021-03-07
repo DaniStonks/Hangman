@@ -53,6 +53,7 @@ public class GameLogic {
                 System.out.println("_");
                 lives -= 1;
                 receivedLetters.add(gameWord.charAt(i));
+                showGuessWord();
             }
         }
 
@@ -66,6 +67,7 @@ public class GameLogic {
             else{
                 System.out.println(correctLetters[i]);
             }
+            System.out.println("Vidas - " + getLives());
         }
     }
 
