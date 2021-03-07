@@ -1,42 +1,31 @@
-import java.sql.SQLOutput;
-
 public class AppStart {
 
     public static void main(String[] args){
-        System.out.println("Hello World!");
-        System.out.println(" 1 2 3 ");
+        runMenu();
     }
 
-    public void runMenu()
-    {
-        System.out.println("┍──────────────────────────────┑");
-        System.out.println("┃         Menu de jogo         ┃");
-        System.out.println("┃                              ┃");
-        System.out.println("┃ 1- Iniciar o jogo.           ┃");
-        System.out.println("┃ 2- Terminar o jogo.          ┃");
-        System.out.println("┃ 3- Sair do jogo.             ┃");
-        System.out.println("┕──────────────────────────────┙\n");
+    public static void runMenu() {
+        InputReader reader = new InputReader();
+        GameLogic game = new GameLogic();
+        while (true) {
+            System.out.println("┍──────────────────────────────┑");
+            System.out.println("┃         Menu de jogo         ┃");
+            System.out.println("┃                              ┃");
+            System.out.println("┃ 1- Iniciar o jogo.           ┃");
+            System.out.println("┃ 2- Sair do jogo.             ┃");
+            System.out.println("┕──────────────────────────────┙\n");
 
-        /*switch()
-        {
-            case 1:
-                {
-
+            switch (reader.getInteger()) {
+                case 1: {
+                    game.play();
                 }
-            case 2:
-                {
-
+                case 2: {
+                    return;
                 }
-            case 3:
-                {
-
-                }
-            default:
-                {
+                default: {
                     System.out.println("Volte a introduzir a opção:\n");
                 }
+            }
         }
-        */
-
     }
 }

@@ -16,7 +16,7 @@ public class GameLogic {
         Random rd1 = new Random();
         int gNumber = rd1.nextInt(gameWords.length);
         gameWord = gameWords[gNumber];
-        ArrayList<Character> receivedLetters = new ArrayList<Character>();
+        receivedLetters = new ArrayList<>();
         correctLetters = new char[gameWord.length()];
     }
 
@@ -27,27 +27,32 @@ public class GameLogic {
 
     public int getLives()
     {
-        return this.lives;
+        return lives;
     }
 
-    public void characterChoice()
+    private void characterChoice()
     {
         InputReader input = new InputReader();
         char character = input.getCharacter();
-        // meter if se letra já foi introduzidas
+        gameWord = "nuno"; //palavra de teste
+        // meter if se letra já foi introduzida
         for(int i=0; i<gameWord.length(); i++)
         {
             if(gameWord.charAt(i) == character)
             {
-                int wordIndex = gameWord.charAt(i);
-                correctLetters[wordIndex] = character;
-                receivedLetters.add(character);
+                correctLetters[i] = character;
+                receivedLetters.add(gameWord.charAt(i));
                 showGuessWord();
             }
             else
             {
+                //meter vidas a funcionar, de momento a cada loop tira uma vida, por exemplo se meteres u,
+                // vai te retirar 3 vidas em vez de 1
+                //fazer o mesmo com o array das letras recebidas, isto adiciona a letra outra vez em cada loop,
+                //se meteres a letra u, isto adiciona ao array a letra u 4 vezes
+                System.out.println("_");
                 lives -= 1;
-                receivedLetters.add(character);
+                receivedLetters.add(gameWord.charAt(i));
             }
         }
 
@@ -62,5 +67,13 @@ public class GameLogic {
                 System.out.println(correctLetters[i]);
             }
         }
+    }
+
+    public void play(){
+        //falta verificar se acertou na palavra, mas nao faças isso agr
+        while(getLives() != 0){
+            characterChoice();
+        }
+
     }
 }

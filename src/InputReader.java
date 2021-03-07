@@ -8,22 +8,25 @@ public class InputReader {
     }
 
     public int getInteger(){
-        int number = reader.nextInt();
+        System.out.println("Opção> ");
 
-        while(reader.hasNextInt() == false){
-            System.out.println("Opção> ");
-            number = reader.nextInt();
+        while (reader.hasNextInt()==false){
+            reader.nextLine();
+            return 0;
         }
+        int number = reader.nextInt();
+        reader.nextLine();
         return number;
     }
 
     public char getCharacter(){
-        char character = reader.next().charAt(0);
-
-        while(reader.hasNext() == false){
-            System.out.println("Letra> ");
-            character = reader.next().charAt(0);
+        System.out.print("Letra> ");
+        String character = reader.next();
+        if(character.length() == 1){
+            return character.charAt(0);
         }
-        return character;
+        else{
+            return 0;
+        }
     }
 }
