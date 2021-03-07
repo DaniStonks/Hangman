@@ -34,7 +34,7 @@ public class GameLogic {
     {
         InputReader input = new InputReader();
         char character = input.getCharacter();
-        // meter if se letra já foi introduzida
+        // meter if se letra já foi introduzidas
         for(int i=0; i<gameWord.length(); i++)
         {
             if(gameWord.charAt(i) == character)
