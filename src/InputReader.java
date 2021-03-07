@@ -10,12 +10,20 @@ public class InputReader {
     public int getInteger(){
         int number = reader.nextInt();
 
-        while (reader.hasNextInt() == false){
-
+        while(reader.hasNextInt() == false){
+            System.out.println("Opção> ");
+            number = reader.nextInt();
         }
+        return number;
     }
 
     public char getCharacter(){
-        reader.next();
+        char character = reader.next().charAt(0);
+
+        while(reader.hasNext() == false){
+            System.out.println("Letra> ");
+            character = reader.next().charAt(0);
+        }
+        return character;
     }
 }
