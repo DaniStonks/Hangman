@@ -37,6 +37,7 @@ public class GameLogic {
         {
             if(gameWord.charAt(i) == character)
             {
+                ;
                 receivedLetters.add(character);
             }
             else
