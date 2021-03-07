@@ -30,9 +30,21 @@ public class GameLogic {
 
     public void characterChoice()
     {
-        if()
-        {
+        InputReader input = new InputReader();
+        char character = input.getCharacter();
 
+        for(int i=0; i<gameWord.length(); i++)
+        {
+            if(gameWord.charAt(i) == character)
+            {
+                receivedLetters.add(character);
+            }
+            else
+            {
+                lives -= 1;
+                receivedLetters.add(character);
+            }
         }
+
     }
 }
